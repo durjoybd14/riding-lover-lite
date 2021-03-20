@@ -22,7 +22,7 @@ const MenuBar = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto">
                     <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                    <Nav.Link as={Link} to="/destination">Destination</Nav.Link>
+                    <Nav.Link as={Link} to="/vehicle/BIKE">Destination</Nav.Link>
                     <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
                     <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
                     <Nav.Link as={Link} to="/login" style={loginStyle}>Login</Nav.Link>

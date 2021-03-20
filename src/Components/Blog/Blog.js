@@ -1,10 +1,11 @@
 import React from 'react';
+import { Jumbotron } from 'react-bootstrap';
 
 const Blog = () => {
     return (
-        <div>
-            <h1>Blog section Coming soon...</h1>
-        </div>
+        <Jumbotron className="m-3">
+            <h1>Our blogs coming soon...</h1>
+        </Jumbotron>
     );
 };
 
