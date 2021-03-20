@@ -38,6 +38,25 @@ const Login = () => {
             });
     }
 
+    //log in with facebook
+    const handleFacebookSignIn = () => {
+        const facebookProvider = new firebase.auth.FacebookAuthProvider();;
+        firebase
+        .auth()
+        .signInWithPopup(facebookProvider)
+        .then((result) => {
+          const user = result.user;
+          const userInfo = { name: user.displayName, email: user.email };
+          setUser(userInfo);
+          history.replace(from);
+
+      })
+      .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage)
+      });
+    }
+
     //own authentication
 
     const handleBlur = (e) => {
@@ -170,6 +189,8 @@ const Login = () => {
             <Form.Text className="text-muted text-center m-3">OR</Form.Text>
 
             <Button className="text-center mx-auto d-block" variant="success" onClick={handleGoogleSignIn}>Login with Google</Button>
+
+            <Button className="text-center mx-auto mt-2 d-block" variant="primary" onClick={handleFacebookSignIn}>Login with Facebook</Button>
         </Form>
 
 

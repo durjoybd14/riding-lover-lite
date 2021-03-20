@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
+import './SearchLocation.css'
 
 const SearchLocation = () => {
     const [location, setLocation] = useState({});
@@ -17,7 +18,7 @@ const SearchLocation = () => {
             setLocation(fieldValue)
         }
         if (e.target.name === 'to') {
-            fieldValue =e.target.value
+            fieldValue = e.target.value
             setLocation(fieldValue)
         }
     }
@@ -43,8 +44,8 @@ const SearchLocation = () => {
                         <input type="submit" value="search" className="form-control mt-3 btn-primary text-center" />
                     </form>
                 </div>
-                <div className="col-lg-4 mt-5">
-                    <img src="https://i.ibb.co/0jzhwCZ/Map.png" width="300" height="300" alt="" />
+                <div className="col-lg-4 map-style mx-auto">
+                    <img src="https://i.ibb.co/0jzhwCZ/Map.png" alt="" />
                 </div>
             </div>
 

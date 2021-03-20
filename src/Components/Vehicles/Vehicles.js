@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { useHistory } from 'react-router';
-import SearchLocation from '../SearchLocation/SearchLocation';
 
 const Vehicles = (props) => {
     const { img, name } = props.vehicle;
