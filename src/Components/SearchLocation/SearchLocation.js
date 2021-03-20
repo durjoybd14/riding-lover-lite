@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 
 const SearchLocation = () => {
     const [location, setLocation] = useState({});
@@ -40,7 +39,7 @@ const SearchLocation = () => {
                         <input onBlur={handleBlur} type="text" name="to" className="form-control" required />
 
                         <label htmlFor="date">Pick Schedule</label>
-                        <input type="date" className="form-control" name="date" id="" />
+                        <input type="date" className="form-control" name="date" required id="" />
                         <input type="submit" value="search" className="form-control mt-3 btn-primary text-center" />
                     </form>
                 </div>

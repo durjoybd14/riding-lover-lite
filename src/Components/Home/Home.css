@@ -12,3 +12,22 @@
     padding: 50px;
 
 }
+
+@media (max-width:992px){
+    .vehicle-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width:768px){
+    .vehicle-container{
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 10px;
+
+    }
+    
+    .home-background{
+        height: 200vh;
+
+
+    }
+}

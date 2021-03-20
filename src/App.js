@@ -13,7 +13,6 @@ import Contact from './Components/Contact/Contact';
 import Destination from './Components/Destination/Destination';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import SearchLocation from './Components/SearchLocation/SearchLocation';
-import LocationDetails from './Components/LocationDetails/LocationDetails';
 
 export const userContext = createContext();
 function App() {
