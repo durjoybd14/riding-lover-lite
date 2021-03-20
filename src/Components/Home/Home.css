@@ -1,0 +1,14 @@
+.home-background{
+   background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTF8fHxlbnwwfHx8&w=1000&q=80');
+   height: 100vh;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.vehicle-container{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+    padding: 50px;
+
+}
