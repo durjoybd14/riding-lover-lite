@@ -14,19 +14,23 @@ const SearchLocation = () => {
     const { name } = useParams();
     console.log(name)
 
-    let src;
+    let src, price;
     if (name === "BIKE") {
-        src = "https://i.ibb.co/SV2JjZr/Frame.png"
+        src = "https://i.ibb.co/SV2JjZr/Frame.png";
+        price = 100;
 
     }
     else if (name === "CAR") {
-        src = "https://i.ibb.co/8gjHN9P/Frame-2.png"
+        src = "https://i.ibb.co/8gjHN9P/Frame-2.png";
+        price = 75;
     }
     else if (name === "BUS") {
-        src = "https://i.ibb.co/hW2zbK2/Frame-1.png"
+        src = "https://i.ibb.co/hW2zbK2/Frame-1.png";
+        price = 50;
     }
     else {
-        src = "https://i.ibb.co/VCy1Rm6/Group.png"
+        src = "https://i.ibb.co/VCy1Rm6/Group.png";
+        price = 40;
     }
 
     const rowStyle = {
@@ -73,24 +77,26 @@ const SearchLocation = () => {
                                 <img src={src} height="50" width="50" alt="" className="ml-2" />
                                 <span className="ml-2">{name}</span>
                                 <img className="ml-2" src="https://i.ibb.co/SXYhc7G/peopleicon.png" height="20" width="20" alt="" />
-                                <span className="ml-2">4</span>
-                                <span className="ml-3">$67</span>
+                                <span className="ml-1">4</span>
+                                <span className="ml-2">${price}</span>
                             </div>
 
                             <div className="bg-light p-2 rounded mt-2">
                                 <img src={src} height="50" width="50" alt="" className="ml-2" />
                                 <span className="ml-2">{name}</span>
                                 <img className="ml-2" src="https://i.ibb.co/SXYhc7G/peopleicon.png" height="20" width="20" alt="" />
-                                <span className="ml-2">4</span>
-                                <span className="ml-3">$67</span>
+                                <span className="ml-1">4</span>
+                                <span className="ml-2">${price}</span>
+
                             </div >
 
                             <div className="bg-light p-2 rounded mt-2">
                                 <img src={src} height="50" width="50" alt="" className="ml-2" />
                                 <span className="ml-2">{name}</span>
                                 <img className="ml-2" src="https://i.ibb.co/SXYhc7G/peopleicon.png" height="20" width="20" alt="" />
-                                <span className="ml-2">4</span>
-                                <span className="ml-3">$67</span>
+                                <span className="ml-1">4</span>
+                                <span className="ml-2">${price}</span>
+
                             </div>
 
 
