@@ -99,6 +99,7 @@ const Login = () => {
           newUserInfo.error = error.message;
           newUserInfo.success = false;
           setUser(newUserInfo)
+          updateUserName(user.name)
         });
     }
     if (!newUser && user.email && user.password) {
@@ -120,10 +121,17 @@ const Login = () => {
     }
     e.preventDefault();
   }
+  const updateUserName = name => {
+    const user = firebase.auth().currentUser;
 
-
-
-
+    user.updateProfile({
+      displayName: name
+    }).then(function () {
+      console.log('user name update successfully')
+    }).catch(function (error) {
+      console.log(error)
+    });
+  }
   const formStyle = {
     border: '2px solid orange',
     borderRadius: '10px',

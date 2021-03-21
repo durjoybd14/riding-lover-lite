@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router';
-import './SearchLocation.css';
-import fakedata from '../../fakedata.json';
 import { MapContainer } from '../MapContainer/MapContainer';
 
 
@@ -13,7 +11,6 @@ const SearchLocation = () => {
 
 
     const { name } = useParams();
-    console.log(name)
 
     let src, price;
     if (name === "BIKE") {
@@ -107,7 +104,7 @@ const SearchLocation = () => {
 
 
                 </div>
-                <div className="col-lg-4 map-style mx-auto">
+                <div className="col-lg-4 mx-auto" style={{width:'100px', height:'100px'}}>
                     <MapContainer></MapContainer>
                 </div>
             </div>

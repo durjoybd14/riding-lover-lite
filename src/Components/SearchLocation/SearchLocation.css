@@ -1,9 +1,0 @@
-.map-style img{
-    max-width: 100%;
-}
-
-@media (max-width:991px){
-    .map-style img{
-        margin-top: 10px;
-    }
-}
