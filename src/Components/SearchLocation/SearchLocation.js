@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import './SearchLocation.css';
 import fakedata from '../../fakedata.json';
+import { MapContainer } from '../MapContainer/MapContainer';
 
 
 const SearchLocation = () => {
@@ -107,7 +108,7 @@ const SearchLocation = () => {
 
                 </div>
                 <div className="col-lg-4 map-style mx-auto">
-                    <img src="https://i.ibb.co/0jzhwCZ/Map.png" alt="" />
+                    <MapContainer></MapContainer>
                 </div>
             </div>
 

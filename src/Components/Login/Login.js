@@ -67,7 +67,7 @@ const Login = () => {
     }
 
     if (e.target.name === 'password') {
-      const isPasswordValid = e.target.value.length >= 8;
+      const isPasswordValid = e.target.value.length >= 6;
       const isPasswordHasNumber = /\d{1}/.test(e.target.value);
       isFieldValid = isPasswordValid && isPasswordHasNumber;
     }
