@@ -33,8 +33,7 @@ const Login = () => {
 
       })
       .catch(error => {
-        console.log(error);
-        console.log(error.message)
+        setUser(error.message)
       });
   }
 
@@ -52,8 +51,7 @@ const Login = () => {
 
       })
       .catch(error => {
-        console.log(error);
-        console.log(error.message)
+        setUser(error.message)
       });
   }
 
@@ -88,13 +86,30 @@ const Login = () => {
   }
 
   const handleSubmit = (e) => {
-    if (user.email && user.password === user.confirmPassword) {
+    if (newUser && user.email && user.password === user.confirmPassword) {
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
         .then((res) => {
           const newUserInfo = { ...user };
           newUserInfo.error = '';
           newUserInfo.success = true;
           setUser(newUserInfo);
+        })
+        .catch((error) => {
+          const newUserInfo = { ...user };
+          newUserInfo.error = error.message;
+          newUserInfo.success = false;
+          setUser(newUserInfo)
+        });
+    }
+    if (!newUser && user.email && user.password) {
+      firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+        .then((res) => {
+          const newUserInfo = { ...user };
+          newUserInfo.error = '';
+          newUserInfo.success = true;
+          setUser(newUserInfo);
+          history.replace(from);
+
         })
         .catch((error) => {
           const newUserInfo = { ...user };
@@ -129,35 +144,35 @@ const Login = () => {
       <div className="col-12">
 
 
-        {/* {newUser ? */}
-        <Form onSubmit={handleSubmit} style={formStyle}>
-          <h3 className="py-3">Create an account</h3>
-          <Form.Group>
-            <Form.Control className="mt-3" onBlur={handleBlur} name="name" type="text" placeholder="Name" required />
-            <Form.Control className="mt-3" onBlur={handleBlur} name="email" type="email" placeholder="User Name or Email" required />
-            <Form.Control className="mt-3" onBlur={handleBlur} name="password" type="password" placeholder="Password" required />
-            <Form.Control className="mt-3" onBlur={handleBlur} name="confirmPassword" type="password" placeholder="Confirm Password" required />
-          </Form.Group>
+        {newUser ?
+          <Form onSubmit={handleSubmit} style={formStyle}>
+            <h3 className="py-3">Create an account</h3>
+            <Form.Group>
+              <Form.Control className="mt-3" onBlur={handleBlur} name="name" type="text" placeholder="Name" required />
+              <Form.Control className="mt-3" onBlur={handleBlur} name="email" type="email" placeholder="User Name or Email" required />
+              <Form.Control className="mt-3" onBlur={handleBlur} name="password" type="password" placeholder="Password" required />
+              <Form.Control className="mt-3" onBlur={handleBlur} name="confirmPassword" type="password" placeholder="Confirm Password" required />
+            </Form.Group>
 
-          <Button className="form-control" variant="primary" type="submit">Create an account</Button>
+            <Button className="form-control" variant="primary" type="submit">Create an account</Button>
 
-          <Form.Text className="text-muted text-center m-2">Already have an account? <button onClick={() => setNewUser(!newUser)} style={buttonStyle}> Login</button> </Form.Text>
-          <Form.Text className="text-muted text-center m-3">OR</Form.Text>
+            <Form.Text className="text-muted text-center m-2">Already have an account? <button onClick={() => setNewUser(!newUser)} style={buttonStyle}> Login</button> </Form.Text>
+            <Form.Text className="text-muted text-center m-3">OR</Form.Text>
 
-          <Button className="text-center mx-auto d-block" variant="success" onClick={handleGoogleSignIn}>Login with Google</Button>
-          <Button className="text-center mx-auto mt-2 d-block" variant="primary" onClick={handleFacebookSignIn}>Login with Facebook</Button>
+            <Button className="text-center mx-auto d-block" variant="success" onClick={handleGoogleSignIn}>Login with Google</Button>
+            <Button className="text-center mx-auto mt-2 d-block" variant="primary" onClick={handleFacebookSignIn}>Login with Facebook</Button>
 
-          {user.success ? <p style={{ color: 'green',textAlign: 'center',marginTop:'10px' }}>User created successfully</p> : <p style={{ color: 'red',textAlign: 'center',marginTop:'10px' }}>{user.error}</p>}
-        </Form>
+            {user.success ? <p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>User created successfully</p> : <p style={{ color: 'red', textAlign: 'center', marginTop: '10px' }}>{user.error}</p>}
+          </Form>
 
-        {/* : */}
+          :
 
 
-        {/* <Form onSubmit={handleSubmit} style={formStyle}>
+          <Form onSubmit={handleSubmit} style={formStyle}>
             <h3 className="py-3">Login</h3>
             <Form.Group>
-              <Form.Control className="mt-3" onBlur={handleBlur} type="email" placeholder="Email" required />
-              <Form.Control className="mt-3" onBlur={handleBlur} type="password" placeholder="Password" required />
+              <Form.Control className="mt-3" onBlur={handleBlur} name="email" type="email" placeholder="Email" required />
+              <Form.Control className="mt-3" onBlur={handleBlur} name="password" type="password" placeholder="Password" required />
             </Form.Group>
 
             <Form.Group controlId="formBasicCheckbox" className=" d-flex justify-content-between">
@@ -165,16 +180,17 @@ const Login = () => {
               <Form.Check as={Link} to="#" className="text-muted">Forgot Password</Form.Check>
             </Form.Group>
 
-            <input className="form-control" variant="primary" type="submit">Login</input>
+            <Button className="form-control" variant="primary" type="submit">Login</Button>
 
             <Form.Text className="text-muted text-center m-2">Don't have an account? <button onClick={() => setNewUser(!newUser)} style={buttonStyle}> Create an account</button> </Form.Text>
             <Form.Text className="text-muted text-center m-3">OR</Form.Text>
 
             <Button className="text-center mx-auto d-block" variant="success" onClick={handleGoogleSignIn}>Login with Google</Button>
             <Button className="text-center mx-auto mt-2 d-block" variant="primary" onClick={handleFacebookSignIn}>Login with Facebook</Button>
+            {user.success ? <p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>User Logged in successfully</p> : <p style={{ color: 'red', textAlign: 'center', marginTop: '10px' }}>{user.error}</p>}
+
           </Form>
-          {user.success && <p style={{ color: 'green' }}>User {newUser ? 'created' : 'Logged In'} successfully</p>}
-        } */}
+        }
       </div>
     </div>
 
