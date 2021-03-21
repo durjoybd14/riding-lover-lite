@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyB2gU3EFGQjkWBx27eQ3Olz-8L03Ac2jSA",
-  authDomain: "riding-lover.firebaseapp.com",
-  projectId: "riding-lover",
-  storageBucket: "riding-lover.appspot.com",
-  messagingSenderId: "550527276048",
-  appId: "1:550527276048:web:d82457d54ed481dd026695"
+  apiKey: "AIzaSyAIRPmtzWV3hYFZwSKC1fl1Fq_5oIoCguI",
+  authDomain: "riding-lover-lite.firebaseapp.com",
+  projectId: "riding-lover-lite",
+  storageBucket: "riding-lover-lite.appspot.com",
+  messagingSenderId: "864206705292",
+  appId: "1:864206705292:web:d8efe2362d6b6b3c9be1a9"
 };
 
 export default firebaseConfig;

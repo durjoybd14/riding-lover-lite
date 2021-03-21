@@ -4,7 +4,7 @@
 
 #They can find the correct route by google map.
 
-#website link: https://riding-lover.web.app/
+#website link: https://riding-lover-lite.firebaseapp.com/
 
 
 
