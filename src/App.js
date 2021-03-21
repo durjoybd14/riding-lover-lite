@@ -21,6 +21,7 @@ function App() {
     name: '',
     email: '',
     password: '',
+    confirmPassword: '',
     error: '',
     success: false
   });
